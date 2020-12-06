@@ -90,15 +90,26 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <Label>Imię</Label>
-            <Label Content="{Binding ElementName=ContactsListBox, Path=SelectedItem.Name }"></Label>
-            <Label>Miasto</Label>
-            <Label Content="{Binding ElementName=ContactsListBox, Path=SelectedItem.City }"></Label>
-            <Label>Data kontaktu</Label>
-            <Label Content="{Binding ElementName=ContactsListBox, Path=SelectedItem.ContactDate }"></Label>
-            <Label>Kontakt z</Label>
-            <Label Content="{Binding ElementName=ContactsListBox, Path=SelectedItem.ContactWith }">
-            </Label>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Label>Imię</Label>
+                <Label Grid.Column="1" Content="{Binding ElementName=ContactsListBox, Path=SelectedItem.Name }"></Label>
+                <Label Grid.Row="1">Miasto</Label>
+                <Label Grid.Column="1" Grid.Row="1" Content="{Binding ElementName=ContactsListBox, Path=SelectedItem.City }"></Label>
+                <Label Grid.Row="2">Data kontaktu</Label>
+                <Label Grid.Column="1" Grid.Row="2" Content="{Binding ElementName=ContactsListBox, Path=SelectedItem.ContactDate }"></Label>
+                <Label Grid.Row="3">Kontakt z</Label>
+                <Label Grid.Column="1" Grid.Row="3" Content="{Binding ElementName=ContactsListBox, Path=SelectedItem.ContactWith }"/>
+            </Grid>
         </StackPanel>
     </Grid>
 </Window>

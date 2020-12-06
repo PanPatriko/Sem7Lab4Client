@@ -43,6 +43,11 @@ namespace Lab4Client
                         TestDate = (DateTime)TestDatePicker.SelectedDate
                     };
                     covidService.AddInstance(instance);//(instance.Name,instance.City,instance.FirstSymptomsDate,instance.TestDate);
+                    MessageBox.Show("Pomyślnie rozpoczęto sesję");
+                }
+                else
+                {
+                    MessageBox.Show("Pola nie mogą być puste");
                 }
             }
             catch (Exception ex)
@@ -71,6 +76,11 @@ namespace Lab4Client
                     covidService.AddContact(contact);//Name2TextBox.Text, City2TextBox.Text, (DateTime)ContactDateDatePicker.SelectedDate,instance);
                     Contacts = covidService.GetContacts().ToList();
                     ContactsListBox.ItemsSource = Contacts;
+                    MessageBox.Show("Pomyślnie dodano kontakt");
+                }
+                else
+                {
+                    MessageBox.Show("Pola nie mogą być puste");
                 }
             }
             catch (Exception ex)
@@ -89,6 +99,7 @@ namespace Lab4Client
             {
                 Contacts = covidService.FinishEnteringContacts().ToList();
                 ContactsListBox.ItemsSource = Contacts;
+                MessageBox.Show("Pomyślnie zakończono sesję");
             }
             catch (Exception ex)
             {
